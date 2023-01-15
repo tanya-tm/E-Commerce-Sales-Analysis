@@ -6,6 +6,7 @@
 ► Order Details- This dataset contains order ID, with the order price, quantity, profit, category and subcategory of product.<br>
 ► Sales target-This dataset contains sales target amount and date for each product category. <br>
 ► Also, performed RFM Analysis which gives more clarity to the business about it's customers. <br>
+► Power BI dashboard - https://www.novypro.com/project/powerbi-23
 
 # 𝗪𝗵𝗮𝘁 𝗶𝘀 𝗥𝗙𝗠 𝗔𝗻𝗮𝗹𝘆𝘀𝗶𝘀? <br>
 
