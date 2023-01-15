@@ -6,8 +6,3 @@
 ► Order Details- This dataset contains order ID, with the order price, quantity, profit, category and subcategory of product. <br>
 ► Sales target- This dataset contains sales target amount and date for each product category. <br>
 
-
-
-
-
-
