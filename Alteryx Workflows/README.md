@@ -5,14 +5,14 @@
 - Through this, Alteryx provides answers to complex business questions and can help to simplify or automate data processes. 
 - This not only saves a significant amount of time, but also helps to prevent errors that may have occurred if the process were done manually.
 
-# 🎯 What is RFM analysis ?
+🎯 What is RFM analysis ?
 
 - FM (Recency, Frequency, Monetary) analysis is a marketing technique used to segment customers based on their purchase behavior.
 - It involves analyzing the recency (how recently a customer made a purchase), frequency (how often a customer makes a purchase), and monetary value (how much a customer spends) of their transactions.
 - The RFM model assigns a score to each customer in each category (1-5) and then combines the scores to create a composite RFM score.
 - Customers are then segmented based on their composite RFM score, with the highest-scoring customers considered the most valuable.
 
-# 🎯 what is R Score ? How to calculate ? 
+🎯 what is R Score ? How to calculate ? 
 
 - “R” stands for Recency and refers to how recently a customer has bought. 
 - Customer with most recent order are given R_SCORE AS 4
@@ -23,7 +23,7 @@ ELSEif [Min of Recency]>= 145 or [Min of Recency] > 65 THEN 3 <br>
 ELSE 4 <br>
 ENDIF <br>
 
-# 🎯 what is F Score ? How to calculate ?
+🎯 what is F Score ? How to calculate ?
 
 - “F" stands for Frequency and refers to How often do they purchase?
 - Customer with most frequent orders are given F_SCORE AS 4
@@ -34,7 +34,7 @@ ENDIF <br>
   ELSE 1 <br>
   ENDIF <br>
   
-# 🎯 what is M Score ? How to calculate ?
+🎯 what is M Score ? How to calculate ?
 
 - "M" stands for Monetary Value and refers to how much do they spend?
 - Customer with Max SUM_PROFIT are given M_SCORE AS 4
@@ -45,14 +45,14 @@ ENDIF <br>
   ELSE 1 <br>
   ENDIF <br>
   
-# 🎯 Calculating Combined RFM Score 
+🎯 Calculating Combined RFM Score 
 
 - Combined RFM Score can be calculated using this formula : 
 - ([R_Score] * 100) + ([F_Score] * 10) + [M_Score]
 - Based on the RFM Scores Customers are divided into various segments such as Platimum, Gold, Silver, and Bronze. 
 - Refer to the alteryx workflow below 
 
-   <img width="533" alt="image" src="https://user-images.githubusercontent.com/63411758/213882400-327fbf81-41d0-49e9-9348-818fb0143743.png">
+  <img width="533" alt="image" src="https://user-images.githubusercontent.com/63411758/213882400-327fbf81-41d0-49e9-9348-818fb0143743.png">
 
 
 
