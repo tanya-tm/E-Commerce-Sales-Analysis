@@ -1,0 +1,217 @@
+<?xml version="1.0"?>
+<AlteryxDocument yxmdVer="2022.3">
+  <Nodes>
+    <Node ToolID="1">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileInput.DbFileInput">
+        <Position x="66" y="54" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Passwords />
+          <File OutputFileName="" RecordLimit="" SearchSubDirs="False" FileFormat="25">C:\Users\sanjay\Desktop\RFM_Alteryx Input.xlsx|||`Sheet1$`</File>
+          <FormatSpecificOptions>
+            <FirstRowData>False</FirstRowData>
+            <ImportLine>1</ImportLine>
+          </FormatSpecificOptions>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <AnnotationText><![CDATA[RFM_Alteryx Input
+]]></AnnotationText>
+          <DefaultAnnotationText>RFM_Alteryx Input.xlsx
+Query=`Sheet1$`</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <Dependencies>
+          <Implicit />
+        </Dependencies>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="Row Labels" size="255" source="File: C:\Users\sanjay\Desktop\RFM_Alteryx Input.xlsx|||`Sheet1$`" type="V_String" />
+            <Field name="Min of Recency" source="File: C:\Users\sanjay\Desktop\RFM_Alteryx Input.xlsx|||`Sheet1$`" type="Double" />
+            <Field name="Sum of Quantity" source="File: C:\Users\sanjay\Desktop\RFM_Alteryx Input.xlsx|||`Sheet1$`" type="Double" />
+            <Field name="Sum of Profit" source="File: C:\Users\sanjay\Desktop\RFM_Alteryx Input.xlsx|||`Sheet1$`" type="Double" />
+            <Field name="R_Score" source="File: C:\Users\sanjay\Desktop\RFM_Alteryx Input.xlsx|||`Sheet1$`" type="Double" />
+            <Field name="F_Score" source="File: C:\Users\sanjay\Desktop\RFM_Alteryx Input.xlsx|||`Sheet1$`" type="Double" />
+            <Field name="M_Score" source="File: C:\Users\sanjay\Desktop\RFM_Alteryx Input.xlsx|||`Sheet1$`" type="Double" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileInput" />
+    </Node>
+    <Node ToolID="2">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
+        <Position x="186" y="54" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <FormulaFields>
+            <FormulaField expression="IF [Min of Recency]=364 or [Min of Recency] &gt;253 THEN 1 ELSEIF [Min of Recency]&gt;= 253 or [Min of Recency] &gt; 145 THEN 2 ELSEif [Min of Recency]&gt;= 145 or [Min of Recency] &gt; 65 THEN 3 ELSE 4 ENDIF" field="R_Score" size="8" type="Double" />
+          </FormulaFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <AnnotationText>Calculating R_Score</AnnotationText>
+          <DefaultAnnotationText>R_Score = IF [Min of Recency]=364 or [Min of Recency] &gt;253 THEN 1 ELSEIF [Min of...</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
+    </Node>
+    <Node ToolID="3">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
+        <Position x="294" y="54" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <FormulaFields>
+            <FormulaField expression="IF [Sum of Quantity]=57 or [Sum of Quantity] &gt;35 THEN 4 ELSEIF [Sum of Quantity]&gt;= 35 or [Sum of Quantity] &gt; 15 THEN 3 ELSEif [Sum of Quantity]&gt;= 15 or [Sum of Quantity] &gt; 5 THEN 2 ELSE 1 ENDIF" field="F_Score" size="8" type="Double" />
+            <FormulaField expression="IF [Sum of Profit]=1970 or [Sum of Profit] &gt;500 THEN 4 ELSEIF [Sum of Profit]&gt;= 500 or [Sum of Profit] &gt; 22 THEN 3 ELSEif [Sum of Profit]&gt;= 22 or [Sum of Profit] &gt; -22 THEN 2 ELSE 1 ENDIF" field="M_Score" size="8" type="Double" />
+          </FormulaFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <AnnotationText>F_Score &amp; M_Score</AnnotationText>
+          <DefaultAnnotationText>F_Score = IF [Sum of Quantity]=57 or [Sum of Quantity] &gt;35 THEN 4 ELSEIF [Sum of...</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
+    </Node>
+    <Node ToolID="5">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
+        <Position x="402" y="54" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <FormulaFields>
+            <FormulaField expression="([R_Score] * 100) + ([F_Score] * 10) + [M_Score]" field="RFM Score" size="2" type="Int16" />
+          </FormulaFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <AnnotationText>Calculating RFM Score</AnnotationText>
+          <DefaultAnnotationText><![CDATA[RFM Score = ([R_Score] * 100) + ([F_Score] * 10) + [M_Score]
+]]></DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
+    </Node>
+    <Node ToolID="6">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
+        <Position x="534" y="54" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <FormulaFields>
+            <FormulaField expression="IF [RFM Score]=444 or [RFM Score] &gt;421 THEN &quot;Platimum Customer&quot; &#xA;ELSEIF [RFM Score]&gt;= 421  or [RFM Score] &gt; 277 THEN &quot;Gold Customer&quot; &#xA;ELSEif [RFM Score]&gt;= 277 or [RFM Score] &gt; 194 THEN &quot;Silver Customer&quot; &#xA;ELSE &quot;Bronze Customer&quot; &#xA;ENDIF" field="Customer Segment" size="1073741823" type="V_WString" />
+          </FormulaFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <AnnotationText>Customer Segmentation</AnnotationText>
+          <DefaultAnnotationText>Customer Segment = IF [RFM Score]=444 or [RFM Score] &gt;421 THEN "Platimum Custome...</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
+    </Node>
+    <Node ToolID="8">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileOutput.DbFileOutput">
+        <Position x="654" y="54" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <File MaxRecords="" FileFormat="25">C:\Users\sanjay\Desktop\RFM_Alteryx Output.xlsx|||Sheet1</File>
+          <Passwords />
+          <Disable>False</Disable>
+          <FormatSpecificOptions>
+            <PreserveFormat>False</PreserveFormat>
+            <SkipFieldNames>False</SkipFieldNames>
+            <OutputOption>RemoveFile</OutputOption>
+          </FormatSpecificOptions>
+          <MultiFile value="False" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <AnnotationText>RFM_Alteryx Output</AnnotationText>
+          <DefaultAnnotationText>RFM_Alteryx Output.xlsx
+Query=Sheet1</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <Dependencies>
+          <Implicit />
+        </Dependencies>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileOutput" />
+    </Node>
+  </Nodes>
+  <Connections>
+    <Connection>
+      <Origin ToolID="1" Connection="Output" />
+      <Destination ToolID="2" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="2" Connection="Output" />
+      <Destination ToolID="3" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="3" Connection="Output" />
+      <Destination ToolID="5" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="5" Connection="Output" />
+      <Destination ToolID="6" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="6" Connection="Output" />
+      <Destination ToolID="8" Connection="Input" />
+    </Connection>
+  </Connections>
+  <Properties>
+    <Memory default="True" />
+    <GlobalRecordLimit value="0" />
+    <TempFiles default="True" />
+    <Annotation on="True" includeToolName="False" />
+    <ConvErrorLimit value="10" />
+    <ConvErrorLimit_Stop value="False" />
+    <CancelOnError value="False" />
+    <DisableBrowse value="False" />
+    <EnablePerformanceProfiling value="False" />
+    <RunWithE2 value="True" />
+    <PredictiveToolsCodePage value="1252" />
+    <DisableAllOutput value="False" />
+    <ShowAllMacroMessages value="False" />
+    <ShowConnectionStatusIsOn value="True" />
+    <ShowConnectionStatusOnlyWhenRunning value="True" />
+    <ZoomLevel value="0" />
+    <LayoutType>Horizontal</LayoutType>
+    <MetaInfo>
+      <NameIsFileName value="True" />
+      <Name>RFM Alteryx Workflow</Name>
+      <Description />
+      <RootToolName />
+      <ToolVersion />
+      <ToolInDb value="False" />
+      <CategoryName />
+      <SearchTags />
+      <Author />
+      <Company />
+      <Copyright />
+      <DescriptionLink actual="" displayed="" />
+      <Example>
+        <Description />
+        <File />
+      </Example>
+      <WorkflowId value="fbcba9c2-8b7e-4408-ab4d-c964aa07caa1" />
+      <Telemetry>
+        <PreviousWorkflowId value="ebf60422-2fef-46be-9b76-f92eb61ab338" />
+        <OriginWorkflowId value="ca8ae157-6be0-43dc-9c52-4cd046b129b8" />
+      </Telemetry>
+    </MetaInfo>
+    <Events>
+      <Enabled value="True" />
+    </Events>
+  </Properties>
+</AlteryxDocument>
