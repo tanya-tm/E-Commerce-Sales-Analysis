@@ -1,4 +1,4 @@
-# E-Commerce Sales Analysis Dashboard 
+# E-Commerce Sales Analysis Dashboard 👩‍💻
 
 ► In this project, we have analyzed an Indian E-commerce store dataset. <br>
 ► Dataset is from Kaggle, and consists of 3 csv files- List of Orders, Order details, and Sales target. <br>
@@ -8,7 +8,7 @@
 ► Also, performed RFM Analysis which gives more clarity to the business about it's customers. <br>
 ► Power BI dashboard - https://www.novypro.com/project/powerbi-23
 
-# 𝗪𝗵𝗮𝘁 𝗶𝘀 𝗥𝗙𝗠 𝗔𝗻𝗮𝗹𝘆𝘀𝗶𝘀? <br>
+# 𝗪𝗵𝗮𝘁 𝗶𝘀 𝗥𝗙𝗠 𝗔𝗻𝗮𝗹𝘆𝘀𝗶𝘀? 👩‍💻 <br>
 
 ► RFM (Recency, Frequency, Monetary) analysis is a marketing technique used to segment customers based on their purchase behavior. <br>
 ► It involves analyzing the recency (how recently a customer made a purchase), frequency (how often a customer makes a purchase), and monetary value (how much a customer spends) of their transactions. <br>
