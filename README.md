@@ -1,4 +1,4 @@
-# E-Commerce Sales Analysis Project 
+# E-Commerce Sales Analysis Project 👩‍💻
 
 🎯 𝑨𝒃𝒐𝒖𝒕 𝒕𝒉𝒆 𝒑𝒓𝒐𝒋𝒆𝒄𝒕 - 
 
